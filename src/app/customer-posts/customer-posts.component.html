@@ -1,8 +1,6 @@
-<body>
+<main>
     <div class="header-of-Posts" *ngIf="singleUser">
-        <button [routerLink]="['/customers']">
-            &#8249;
-        </button>
+        <a [routerLink]="['/customers']">&#8249;</a>
         <h1>
             {{singleUser.name}} Posts
         </h1>
@@ -21,5 +19,5 @@
                 </div>
             </div>   
         </div>
-    </div>    
-</body>
+    </div>
+</main>

@@ -1,34 +1,9 @@
 <main>
   <div class="search-div">
-    <button [routerLink]="['/home']">&#8249;</button>
-    <input id="search-for-customer" type="search" placeholder="Search users..." (input)="search($event)">
+    <a [routerLink]="['/home']">&#8249;</a>
+    <input id="search-for-customer" type="search" placeholder="Search users..." [formControl]="searchControl">
   </div>
   <div class="boddy">
-    <div class="user-info" *ngFor="let user of filteredUsers">
-      <div class="user-infos">
-        <span>
-          <img src="img/image.jpg">
-        </span>
-        <li> 
-          {{user.name}}
-        </li>
-        <li>
-          {{user.username}} 
-        </li>
-        <li>
-          {{ user.email }} 
-        </li>
-        <li>
-          {{ user.phone }}
-        </li>
-        <li>
-          {{ user.company.name }} 
-        </li>
-      </div>
-      <div class="pt-btn"> 
-        <button id="post" [routerLink]="['/post', user.id]">Posts</button>
-        <button id="todo" [routerLink]="['/todo', user.id]">Todos</button>
-      </div>
-    </div>
+    <app-user-item *ngFor="let user of filteredUsers" [user]="user"></app-user-item>
   </div>
 </main>

@@ -1,0 +1,16 @@
+<div class="user-info">
+  <div class="user-infos">
+    <span>
+      <img src="img/image.jpg" />
+    </span>
+    <li>{{ user.name }}</li>
+    <li>{{ user.username }}</li>
+    <li>{{ user.email }}</li>
+    <li>{{ user.phone }}</li>
+    <li>{{ user.company.name }}</li>
+  </div>
+  <div class="pt-btn">
+    <a [routerLink]="['/post', user.id]" id="post">posts</a>
+    <a [routerLink]="['/post', user.id]" id="todo">Todos</a>
+  </div>
+</div>
