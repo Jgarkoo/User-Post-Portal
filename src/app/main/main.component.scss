@@ -1,0 +1,29 @@
+main{
+    background-color: rgb(0, 10, 20);
+    height: 80vh;
+    width: 100%;
+    button{
+        font-size: 20px;
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 10px;
+        border: solid grey;
+        border-width: 0px 0px 1px 0px;
+        border-radius: 0px;
+        border-color: transparent;
+        cursor: pointer;
+        background-color: transparent;
+        color: rgb(184, 193, 197);
+        &:hover{
+            color: white;
+            transition: 0.2s;
+            border-color: rgb(24, 149, 65);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    button{
+        font-size: 14px !important;
+    }
+}

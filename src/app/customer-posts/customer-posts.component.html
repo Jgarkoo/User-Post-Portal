@@ -1,0 +1,25 @@
+<body>
+    <div class="header-of-Posts" *ngIf="singleUser">
+        <button [routerLink]="['/customers']">
+            &#8249;
+        </button>
+        <h1>
+            {{singleUser.name}} Posts
+        </h1>
+    </div>
+    <div class="post-list">
+        <div class="posts-container">
+            <div *ngFor="let post of postArr" class="post-card">
+                <div class="post-title">
+                    <p>{{ post.title }}</p>
+                    <div  *ngIf="singleUser" class="autor-of-post">
+                        <h6>Posted by: {{ singleUser.name }} </h6>
+                    </div>
+                </div>
+                <div class="post-description">
+                    <p>{{ post.body }}</p>
+                </div>
+            </div>   
+        </div>
+    </div>    
+</body>

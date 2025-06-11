@@ -1,0 +1,14 @@
+<header>
+    <div class="left-header">
+        <a [routerLink]="['/home']">
+            <p>
+                Croco Project
+            </p>
+        </a>
+    </div>
+    <div class="right-header">
+        <p>
+            {{currentDateTime | async | date:'M/d/yy, h:mm a' }}
+        </p>
+    </div>
+</header>

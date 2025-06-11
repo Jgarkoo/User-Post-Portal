@@ -1,0 +1,34 @@
+<main>
+    <div class="header-of-todolist">
+        <button [routerLink]="['/customers']">
+            &#8249;
+        </button>        
+        <h1>
+            Customers To-Do List
+        </h1>
+    </div>
+    <div class="todo-list">
+        <div class="todo-list-header">
+            <p>
+                ID
+            </p>
+            <p>
+                Title
+            </p>
+            <p>
+                Completed
+            </p>
+        </div>        
+        <div class="todo-list-body">
+            <p>
+                {{todo.id}}
+            </p>
+            <p>
+                {{todo.title}}
+            </p>
+            <p [style.color]="todo.completed ? '#07e007' : 'red'" > 
+            {{todo.completed}} 
+            </p>
+        </div>
+    </div>
+</main>
