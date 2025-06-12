@@ -54,3 +54,30 @@ color: rgb(177, 199, 202);
         }
     }
 }
+
+
+@media (max-width: 350px){
+    .user-info{
+        width: 150px;
+        .user-infos{
+            img{
+                width: 125px;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+            li{
+                font-size: 9px;
+                font-weight: bold;
+                margin: 10px 0px;
+            }
+        }
+        .pt-btn {
+            padding: 2px 0px;
+            a {
+                padding: 3px;
+                font-size: 10px;
+            }
+        }
+    }
+}
+

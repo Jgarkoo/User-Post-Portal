@@ -183,7 +183,48 @@ main{
     }
 }
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 350px){
+    main{
+        .header-of-Posts{
+            padding: 0px  40% 40px 8% !important;
+            justify-content: space-between !important;
+            h1{
+                font-size: 16px !important;
+            }
+            a{
+                font-size: 12px !important;
+            }
+        }
+        .post-body{
+            .posts{
+                width: 180px !important;
+                height: 220px !important;
+                h3{
+                    font-size: 12px !important;
+                }
+                p{
+                    font-size: 10px !important;
+                    margin-top: 30px !important;
+                }
+            } 
+        }
+    }
+    .details-of-posts{
+        top: 40% !important;
+        width: 90% !important;
+        height: 220px !important;
+        h3{
+            margin-top: 30px !important;
+            font-size: 12px !important;
+        }
+        p{
+            margin-top: 40px !important;
+            font-size: 10px !important;
+        }   
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1485px) {
     main{
         padding: 20px 0px !important;
         .header-of-Posts{

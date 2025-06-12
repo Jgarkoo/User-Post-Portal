@@ -95,6 +95,29 @@ main{
     }
 }
 
+@media(max-width: 350px){
+    .header-of-Posts{
+        h1{
+            font-size: 10px !important;
+        }
+        a{
+            font-size: 10px !important;
+        }
+    }
+    .post-list{
+        padding-left: 5% !important;
+        .post-card {
+            width: 180px !important;
+            height: 180px !important;
+            justify-content: space-between !important;
+            p{
+                font-size: 10px !important;
+            }
+
+        }
+    
+    }
+}
 
 @media only screen and (min-width: 769px) and (max-width: 1024px){
     .post-list{

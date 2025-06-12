@@ -56,7 +56,6 @@ main {
   100% { opacity: 0.6; }
 }
 
-
 @media (max-width: 768px) {
     main{ 
         .search-div {
@@ -75,6 +74,22 @@ main {
             .user-info{
                 width: 55%;
             }
+        }
+    }
+}
+
+@media(max-width: 350px){
+    .search-div {
+        a{
+            margin-left: 8px !important;
+            font-size: 15px !important;
+            padding: 0px 15px !important;
+        }
+        input {
+            margin-left: 0% !important;
+            padding: 8px !important;
+            width: 55% !important;
+            font-size: 10px !important;
         }
     }
 }

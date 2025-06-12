@@ -36,12 +36,29 @@ footer{
     #about-Us, 
     #fol-us,
     #contact-info{
-        color: white;
         font-size: 12px !important;
     }
 
     p, a{
-        font-size: 10px;
+        font-size: 10px !important;
+    }
+    
+}
+
+
+@media (max-width: 350px){
+
+    footer{
+        height: 120px !important;
+        #about-Us, 
+        #fol-us,
+        #contact-info{
+            font-size: 8px !important;
+        }
+
+        p, a{
+            font-size: 6px !important;
+        }
     }
     
 }
