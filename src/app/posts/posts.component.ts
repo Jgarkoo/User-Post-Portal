@@ -3,18 +3,20 @@ import { posts } from '../interface/posts';
 import { CommonModule } from '@angular/common';
 import { PostsService } from '../service/posts.service';
 import { RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-posts',
   imports: [CommonModule, RouterLink],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss'
 })
-export class PostsComponent implements OnInit, OnDestroy{
+export class PostsComponent implements OnDestroy, OnInit{
   
   id: string | undefined ;
   selectedPost: posts | null = null;
   postArr: posts[] = [];
   viewDetail: boolean = false;
+  subscriptions = new Subscription();
 
   constructor(private service: PostsService){}
   
@@ -23,24 +25,28 @@ export class PostsComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-      if (typeof document !== 'undefined') {
+    this.subscriptions.unsubscribe();
+    
+    if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
     }
   }
 
   catchPost() {
-    this.service.getPost().subscribe({
+    const postSub = this.service.getPost().subscribe({
       next: (res: posts[]) => {
         this.postArr = res;
       },
       error: (err) => {
-         console.log(err);
+        console.log(err);
       }
     });
+
+    this.subscriptions.add(postSub);
   }
 
   viewDetailsOfPosts(postId: number) {
-    this.service.getSinglePost(postId).subscribe({
+    const detailSub = this.service.getSinglePost(postId).subscribe({
       next: (res: posts) => {
         this.selectedPost = res;
         this.overFlowBackGround();
@@ -49,6 +55,8 @@ export class PostsComponent implements OnInit, OnDestroy{
         console.log(err);
       }
     });
+
+    this.subscriptions.add(detailSub);
   }
 
   closeDetails() {
