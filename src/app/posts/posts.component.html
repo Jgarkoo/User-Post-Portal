@@ -8,23 +8,27 @@
         </h1>
     </div>
   <div class="post-body">
-    <div class="posts" *ngFor="let post of postArr">
-      <h3>
-        {{ post.title }}
-      </h3>
-      <p>
-        {{ post.body }}
-      </p>
-      <div class="detail-button"> 
-        <button (click)="viewDetailsOfPosts(post.id)">Details</button>
-      </div>
-    </div>  
+    @for(post of postArr; track post.id){
+      <div class="posts">
+        <h3>
+          {{ post.title }}
+        </h3>
+        <p>
+          {{ post.body }}
+        </p>
+        <div class="detail-button"> 
+          <button (click)="viewDetailsOfPosts(post.id)">Details</button>
+        </div>
+    </div>
+    }  
   </div>
 </main>
-<div *ngIf="selectedPost && viewDetail" class="details-of-posts">
+@if(selectedPost && viewDetail){
+  <div class="details-of-posts">
     <button (click)="closeDetails()" id="close-btn">X</button>
     <div class="details-of-post">
-      <h3>  {{selectedPost.title}} </h3>
-      <p>  {{selectedPost.body}} <p>
+      <h3> {{selectedPost.title}} </h3>
+      <p> {{selectedPost.body}} <p>
     </div>
   </div>
+}

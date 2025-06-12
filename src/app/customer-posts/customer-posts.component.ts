@@ -8,7 +8,7 @@ import { user } from '../interface/customers';
 
 @Component({
   selector: 'app-customer-posts',
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './customer-posts.component.html',
   styleUrl: './customer-posts.component.scss'
 })

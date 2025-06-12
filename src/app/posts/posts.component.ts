@@ -3,7 +3,6 @@ import { posts } from '../interface/posts';
 import { CommonModule } from '@angular/common';
 import { PostsService } from '../service/posts.service';
 import { RouterLink } from '@angular/router';
-
 @Component({
   selector: 'app-posts',
   imports: [CommonModule, RouterLink],
@@ -54,7 +53,7 @@ export class PostsComponent implements OnInit, OnDestroy{
 
   closeDetails() {
     this.selectedPost = null;
-    this.overFlowBackGround();
+    this.overFlowBackGround();  
   }
 
   overFlowBackGround() {

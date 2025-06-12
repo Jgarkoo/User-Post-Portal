@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { user } from '../interface/customers';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CustomersService } from '../service/customers.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +8,7 @@ import { UserItemComponent } from '../components/user-item/user-item.component';
 
 @Component({
   selector: 'app-customer',
-  imports: [CommonModule, RouterLink, ReactiveFormsModule, UserItemComponent],
+  imports: [RouterLink, ReactiveFormsModule, UserItemComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss'
 })
