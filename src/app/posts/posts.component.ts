@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PostsService } from '../service/posts.service';
 import { RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-posts',
   imports: [CommonModule, RouterLink],
@@ -12,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class PostsComponent implements OnDestroy, OnInit{
   
-  id: string | undefined ;
+  id: string | undefined;
   selectedPost: posts | null = null;
   postArr: posts[] = [];
   viewDetail: boolean = false;
@@ -26,10 +27,7 @@ export class PostsComponent implements OnDestroy, OnInit{
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
-    
-    if (typeof document !== 'undefined') {
-      document.body.style.overflow = '';
-    }
+    this.resetOverFlow();
   }
 
   catchPost() {
@@ -49,7 +47,7 @@ export class PostsComponent implements OnDestroy, OnInit{
     const detailSub = this.service.getSinglePost(postId).subscribe({
       next: (res: posts) => {
         this.selectedPost = res;
-        this.overFlowBackGround();
+        this.setOverflowHidden();
       },
       error: (err) => {
         console.log(err);
@@ -61,15 +59,20 @@ export class PostsComponent implements OnDestroy, OnInit{
 
   closeDetails() {
     this.selectedPost = null;
-    this.overFlowBackGround();  
+    this.resetOverFlow();  
   }
 
-  overFlowBackGround() {
-    this.viewDetail = !this.viewDetail;
-      if (this.viewDetail) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
+  setOverflowHidden() {
+    this.viewDetail = true;
+    if (typeof document !== 'undefined') {
+      document.body.classList.add('modal-open');
+    }
+  }
+
+  resetOverFlow() {
+    this.viewDetail = false;
+    if (typeof document !== 'undefined') {
+      document.body.classList.remove('modal-open');
     }
   }
 
