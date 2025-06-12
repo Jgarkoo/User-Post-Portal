@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { posts } from '../interface/posts';
 import { CommonModule } from '@angular/common';
 import { PostsService } from '../service/posts.service';
@@ -20,7 +20,7 @@ export class PostsComponent implements OnDestroy, OnInit{
   subscriptions = new Subscription();
   postsArray = Array(6).fill(null);
 
-  constructor(private service: PostsService){}
+  private service = inject(PostsService);
   
   ngOnInit(): void {
     this.catchPost();

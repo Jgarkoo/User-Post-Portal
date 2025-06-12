@@ -1,19 +1,27 @@
 <main>
   <div class="search-div">
     <a [routerLink]="['/home']">&#8249;</a>
-    <input id="search-for-customer" type="search" placeholder="Search users..." [formControl]="searchControl">
+    <input id="search-for-customer" type="search" placeholder="Search users..." [formControl]="searchControl"/>
   </div>
   <div class="boddy">
     @if (filteredUsers.length > 0) {
-        @for (user of filteredUsers; track user.id) {
-          <app-user-item [user]="user"></app-user-item>
-        } 
-      } @else {
+      @for (user of filteredUsers; track user.id) {
+        <app-user-item [user]="user"></app-user-item>
+      }
+    } @else {
+      @if (userArr.length === 0) {
         <div class="users-wrapper">
-        @for (_ of customerArray; let i = $index; track i) {
-          <div class="users-card"></div>
+          @for (_ of customerArray; let i = $index; track i) {
+            <div class="users-card"></div>
           }
         </div>
+      } @else {
+        <div class="no-user-msg">
+          <p>
+            No customer was found.
+          </p>
+        </div>
+      }
     }
   </div>
 </main>

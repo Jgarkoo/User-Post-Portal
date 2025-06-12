@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { user } from '../interface/customers';
 import { RouterLink } from '@angular/router';
 import { CustomersService } from '../service/customers.service';
@@ -20,12 +20,13 @@ export class CustomerComponent implements OnDestroy, OnInit{
   searchControl = new FormControl('');
   subscription = new Subscription();
   customerArray = Array(6).fill(null);
-
-  constructor(private service: CustomersService){}
+  
+  
+  private service = inject(CustomersService);
 
   ngOnInit(): void {
     this.fetchUser();
-    this.searchControl.valueChanges
+    const searchSub = this.searchControl.valueChanges
       .pipe(
         debounceTime(300),
         distinctUntilChanged()
@@ -33,6 +34,7 @@ export class CustomerComponent implements OnDestroy, OnInit{
       .subscribe(query => {
         this.filteredUsers = this.search(query || '');
       });
+    this.subscription.add(searchSub);
   }
 
   ngOnDestroy(): void {

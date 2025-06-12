@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { todos } from '../interface/todos';
 import { TodosService } from '../service/todos.service';
@@ -12,15 +12,16 @@ import { Subscription } from 'rxjs';
 })
 export class TodoComponent implements OnDestroy, OnInit{
   
-  id: string;
+  id: string | undefined;
   todo: any = {};
   subscription = new Subscription();
 
-  constructor(private service: TodosService, private route: ActivatedRoute){
-    this.id = this.route.snapshot.paramMap.get('id') || ' ';
-  }
+  private service = inject(TodosService);
+  private route = inject(ActivatedRoute);
+
   
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id') || ' ';
     this.fetchSingleTodo();
   }
 

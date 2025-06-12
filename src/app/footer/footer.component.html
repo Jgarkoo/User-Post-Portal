@@ -1,50 +1,16 @@
 <footer>
-    <div class="about-us">
-        <p id="about-Us">
-            ABOUT US
-        </p>
-        <p>
-            General Roles
-        </p>
-        <p>
-            Sport Rules
-        </p>
-        <p>
-            Restrictions 
-        </p>
+  @for (section of footerSections; track section) {
+    <div class="footer-section">
+      <p id="section-title">{{ section.title }}</p>
+      @if (!section.isLink) {
+        @for (item of section.items; track item) {
+          <p id="section-items">{{ item }}</p>
+        }
+      } @else {
+        @for (item of section.items; track item.name) {
+          <p id="soc-links"><a [href]="item.link">{{ item.name }}</a></p>
+        }
+      }
     </div>
-    <div class="follow-us">
-        <p id="fol-us">
-            FOLLOW US
-        </p>
-        <p>
-            <a href="/home">
-                Facebook
-            </a>
-        </p>
-        <p>
-            <a href="/home">
-                Instagram
-            </a>
-        </p>
-        <p>
-            <a href="/home">
-                Twitter
-            </a>
-        </p>
-    </div>
-    <div class="cont-info">
-        <p id="contact-info">
-            CONTACT INFO
-        </p>
-        <p>
-            *1234
-        </p>
-        <p>
-            (123) 4567890
-        </p>
-        <p>
-            example&#x40;mail.com
-        </p>
-    </div>
+  }
 </footer>

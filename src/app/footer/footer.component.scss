@@ -10,7 +10,7 @@ footer{
     border-right-width: 0px;
     border-left-width: 0px;
     background-color: rgb(7, 44, 56);
-    p, a{
+    #soc-links, a, #section-items{
         color: rgb(153, 161, 165);
         margin-bottom: 5px;
         text-decoration: none;
@@ -20,26 +20,19 @@ footer{
             color: rgb(184, 193, 197);
         }
     }
-    
+    #section-title{
+        color: white;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }   
 }
-
-#about-Us, 
-#fol-us,
-#contact-info{
-    color: white;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
 
 @media (max-width: 768px){
-    #about-Us, 
-    #fol-us,
-    #contact-info{
+    #section-title{
         font-size: 12px !important;
     }
 
-    p, a{
+    #soc-links, a, #section-items{
         font-size: 10px !important;
     }
     
@@ -50,13 +43,11 @@ footer{
 
     footer{
         height: 120px !important;
-        #about-Us, 
-        #fol-us,
-        #contact-info{
+        #section-title{
             font-size: 8px !important;
         }
 
-        p, a{
+        #soc-links, a, #section-items{
             font-size: 6px !important;
         }
     }

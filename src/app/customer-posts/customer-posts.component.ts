@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { PostsService } from '../service/posts.service';
 import { posts } from '../interface/posts';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -20,11 +20,12 @@ export class CustomerPostsComponent implements OnDestroy, OnInit{
   customersPostsArray = Array(6).fill(null);
   subscriptions = new Subscription();
 
-  constructor(private service: PostsService, private route: ActivatedRoute, private customerService: CustomersService){
-    this.userId = this.route.snapshot.paramMap.get('userId') || ' ';
-  }
+  private service = inject(PostsService);
+  private route = inject(ActivatedRoute);
+  private customerService = inject(CustomersService);
   
   ngOnInit(): void {
+    this.userId = this.route.snapshot.paramMap.get('userId') || ' ';
     this.fetchSinglepostByUserId();
   }
 
