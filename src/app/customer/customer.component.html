@@ -3,12 +3,17 @@
     <a [routerLink]="['/home']">&#8249;</a>
     <input id="search-for-customer" type="search" placeholder="Search users..." [formControl]="searchControl">
   </div>
-
   <div class="boddy">
-    @for (user of filteredUsers; track user.id) {
-      <app-user-item [user]="user"></app-user-item>
-    } @empty {
-      <p class="no-users">No users found.</p>
+    @if (filteredUsers.length > 0) {
+        @for (user of filteredUsers; track user.id) {
+          <app-user-item [user]="user"></app-user-item>
+        } 
+      } @else {
+        <div class="users-wrapper">
+        @for (_ of customerArray; let i = $index; track i) {
+          <div class="users-card"></div>
+          }
+        </div>
     }
   </div>
 </main>

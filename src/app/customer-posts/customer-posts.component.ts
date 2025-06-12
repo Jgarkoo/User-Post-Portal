@@ -17,6 +17,7 @@ export class CustomerPostsComponent implements OnDestroy, OnInit{
   userId: any;
   postArr: posts[] = [];
   singleUser: user | null = null;
+  customersPostsArray = Array(6).fill(null);
   subscriptions = new Subscription();
 
   constructor(private service: PostsService, private route: ActivatedRoute, private customerService: CustomersService){

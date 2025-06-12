@@ -19,7 +19,7 @@ export class CustomerComponent implements OnDestroy, OnInit{
   filteredUsers: user[] = [];                         
   searchControl = new FormControl('');
   subscription = new Subscription();
-  
+  customerArray = Array(6).fill(null);
 
   constructor(private service: CustomersService){}
 

@@ -60,7 +60,19 @@ main{
     }
 }
 
+.posts-card {
+  width: 420px;
+  height: 200px;
+  border-radius: 8px;
+  background-color: #1e2c38;
+  animation: pulse 1.5s infinite ease-in-out;
+}
 
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
 
 @media (max-width: 768px){
     .header-of-Posts{

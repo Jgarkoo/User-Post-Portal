@@ -1,34 +1,34 @@
 <main [class.blurred]="viewDetail">
   <div class="header-of-Posts">
-        <a [routerLink]="['/home']">
-            &#8249;
-        </a>
-        <h1>
-          Posts
-        </h1>
-    </div>
+    <a [routerLink]="['/home']">&#8249;</a>
+    <h1>Posts</h1>
+  </div>
   <div class="post-body">
-    @for(post of postArr; track post.id){
-      <div class="posts">
-        <h3>
-          {{ post.title }}
-        </h3>
-        <p>
-          {{ post.body }}
-        </p>
-        <div class="detail-button"> 
-          <button (click)="viewDetailsOfPosts(post.id)">Details</button>
+    @if (postArr.length > 0) {
+      @for (post of postArr; track post.id) {
+        <div class="posts">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.body }}</p>
+          <div class="detail-button">
+            <button (click)="viewDetailsOfPosts(post.id)">Details</button>
+          </div>
         </div>
-    </div>
-    }  
+      }
+    } @else {
+      <div class="posts-wrapper">
+        @for (_ of postsArray; let i = $index; track i) {
+          <div class="posts-card"></div>
+        }
+      </div>
+    }
   </div>
 </main>
-@if(selectedPost && viewDetail){
+@if (selectedPost && viewDetail) {
   <div class="details-of-posts">
     <button (click)="closeDetails()" id="close-btn">X</button>
     <div class="details-of-post">
-      <h3> {{selectedPost.title}} </h3>
-      <p> {{selectedPost.body}} <p>
+      <h3>{{ selectedPost.title }}</h3>
+      <p>{{ selectedPost.body }}</p>
     </div>
   </div>
 }

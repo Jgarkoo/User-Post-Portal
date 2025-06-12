@@ -18,6 +18,7 @@ export class PostsComponent implements OnDestroy, OnInit{
   postArr: posts[] = [];
   viewDetail: boolean = false;
   subscriptions = new Subscription();
+  postsArray = Array(6).fill(null);
 
   constructor(private service: PostsService){}
   

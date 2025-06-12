@@ -9,21 +9,29 @@
     }
     <div class="post-list">
         <div class="posts-container">
-            @for(post of postArr; track post.id){
-                <div class="post-card">
-                    <div class="post-title">
-                        <p>{{ post.title }}</p>
-                        @if(singleUser){
-                            <div class="autor-of-post">
-                                <h6>Posted by: {{ singleUser.name }} </h6>
-                            </div>
-                        }
+            @if (postArr.length > 0) {
+                @for(post of postArr; track post.id){
+                    <div class="post-card">
+                        <div class="post-title">
+                            <p>{{ post.title }}</p>
+                            @if(singleUser){
+                                <div class="autor-of-post">
+                                    <h6>Posted by: {{ singleUser.name }} </h6>
+                                </div>
+                            }
+                        </div>
+                        <div class="post-description">
+                            <p>{{ post.body }}</p>
+                        </div>
                     </div>
-                    <div class="post-description">
-                        <p>{{ post.body }}</p>
-                    </div>
+                } 
+            } @else {
+                <div class="posts-wrapper">
+                    @for (_ of customersPostsArray; let i = $index; track i) {
+                    <div class="posts-card"></div>
+                    }
                 </div>
-            }  
+                }
         </div>
     </div>
 </main>
